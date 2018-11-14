@@ -8,8 +8,9 @@ def test_dataProcess():
     if request.method =="POST":
         # print(request.form)
         a = request.data
-        dict1 = json.loads(str(a, encoding = "utf-8"))
-        print(dict1)
+        print(str(a, encoding = "utf-8"))
+        # dict1 = json.loads(str(a, encoding = "utf-8"))
+        # print(dict1)
         return  "ok"
     else:
         return "请求方法为POST",500
