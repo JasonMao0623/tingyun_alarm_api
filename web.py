@@ -1,5 +1,6 @@
 from flask import Flask,request
 app =Flask(__name__)
+from urllib.parse import unquote
 import time
 import json
 @app.route("/alarm",methods=["POST"])
@@ -8,7 +9,7 @@ def test_dataProcess():
     if request.method =="POST":
         # print(request.form)
         a = request.data
-        print(str(a, encoding = "utf-8"))
+        print(unquote(str(a, encoding = "utf-8")))
         # dict1 = json.loads(str(a, encoding = "utf-8"))
         # print(dict1)
         return  "ok"
