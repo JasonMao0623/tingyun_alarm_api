@@ -5,6 +5,8 @@ import json
 import process
 from flask import jsonify
 import requests
+import log_out
+import time
 @app.route("/alarm",methods=["POST"])
 #定义路由
 def test_dataProcess():
@@ -20,6 +22,8 @@ def test_dataProcess():
         #客户用于接受听云警报api的地址
         url = "http://118.25.109.231:10080/alarm"
         requests.post(url,res)
+        content_value = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())) + " 推送成功 " + " 内容：" + res
+        log_out.log_out(content_value)
         return  jsonify(res)
     else:
         return "请求方法为POST",500
