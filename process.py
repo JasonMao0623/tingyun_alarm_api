@@ -1,4 +1,4 @@
-#字符串转json，拼接新标准字符
+#字符串转json，拼接新标准json格式body
 def strToJson(data):
     dict_data = data
     tmp_data = {}
